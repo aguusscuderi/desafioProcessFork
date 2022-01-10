@@ -1,9 +1,8 @@
 console.log('PROCESO HIJOOO')
 
-process.on('randoms', data =>{
-    //process.send({res: data})
-    console.log(data)
-    process.send(random_calculator(data))
+process.on('message', (response) =>{
+    console.log(response)
+    process.send({res: random_calculator(response)})
 })
 
 function Random(max, min){
@@ -11,8 +10,7 @@ function Random(max, min){
 }
 
 function random_calculator(cant){
-    if(!cant) cant = Number(100000000)
-    console.log(cant)
+    //console.log(cant)
     let min = 1
     let numbers = []
     let repeatedOnes = {}

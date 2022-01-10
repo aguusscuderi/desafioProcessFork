@@ -6,7 +6,7 @@ const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const PROCESS_DATA = require('./process')
 const serverRouter = require('./routes/router')
-const PORT = Number(argv._) || 8080
+const PORT = Number(argv._) || process.env.PORT
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
